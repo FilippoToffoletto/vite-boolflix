@@ -1,1 +1,19 @@
-@import './variabiles/variabiles'
+@use './partials/variabiles' as *;
+@import 'node_modules/@fontsource/montserrat/index.css';
+@import 'node_modules/@fontsource/montserrat/600.css';
+@import 'node_modules/@fontsource/montserrat/700.css';
+@import 'node_modules/@fontsource/montserrat/800.css';
+@import 'node_modules/bootstrap/scss/bootstrap.scss';
+
+body{
+    font-family: "Montserrat", sans-serif;
+    background-color: $background-color;
+    color: white;
+}
+
+h1,
+h2,
+h3{
+    font-size: 2rem;
+    font-weight: 700;
+}

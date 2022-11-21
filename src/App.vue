@@ -1,4 +1,7 @@
 <script>
+import axios from 'axios';
+import {store} from './data/store';
+
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
 
@@ -7,14 +10,32 @@ export default {
   components:{
     AppHeader,
     AppMain
-  }
+  },
+  data(){
+    return{
+      store
+    }
+  },
+  meethods:{
+    getApi(){
+      axios.get(store.getApiMovie,{
+        params: {
+          language: store.language,
+          query:store.query
+        }
+      })
+      .then(films=>{
+        store.arrayFilms=[],
+        store.arrayFilms= films.data.results;
+      })
+    }
+  },
 }
 </script>
 
 <template>
-  <AppHeader/>
+  <AppHeader @search="getApi()" />
   <AppMain/>
-  ciao
 </template>
 
 

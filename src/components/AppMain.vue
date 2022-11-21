@@ -1,7 +1,17 @@
 <script>
-export default {
-    name:'AppMain'
+import {store} from  '../data/store';
+import DynamicCards from './DynamicCards.vue';
 
+export default {
+    name:'AppMain',
+    components:{
+      DynamicCards,
+    },
+    data(){
+      return{
+        store
+      }
+    }
 }
 </script>
 
@@ -11,6 +21,6 @@ export default {
 
 
 
-<style>
+<style lang="scss" scoped>
 
 </style>
