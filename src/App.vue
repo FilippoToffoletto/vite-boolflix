@@ -16,17 +16,28 @@ export default {
       store
     }
   },
-  meethods:{
+  methods:{
     getApi(){
+      store.isSearch= true;
       axios.get(store.getApiMovie,{
+          params: {
+            language: store.language,
+            query:store.query
+          }
+      })
+        .then(films=>{
+          store.arrayFilms=[],
+          store.arrayFilms= films.data.results;
+        })
+      axios.get(store.getApiSerieTv,{
         params: {
           language: store.language,
           query:store.query
         }
       })
-      .then(films=>{
-        store.arrayFilms=[],
-        store.arrayFilms= films.data.results;
+      .then(serieTv=>{
+        store.arraySerieTv=[],
+        store.arraySerieTv= serieTv.data.results;
       })
     }
   },
@@ -35,7 +46,7 @@ export default {
 
 <template>
   <AppHeader @search="getApi()" />
-  <AppMain/>
+  <AppMain />
 </template>
 
 

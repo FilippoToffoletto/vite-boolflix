@@ -1,8 +1,16 @@
 @use './partials/variabiles' as *;
+
+// FLAGS
+@import "/node_modules/flag-icons/css/flag-icons.min.css";
+
+
+// MONTSERRAT FONT
 @import 'node_modules/@fontsource/montserrat/index.css';
 @import 'node_modules/@fontsource/montserrat/600.css';
 @import 'node_modules/@fontsource/montserrat/700.css';
 @import 'node_modules/@fontsource/montserrat/800.css';
+
+// BOOTSTRAP
 @import 'node_modules/bootstrap/scss/bootstrap.scss';
 
 body{
