@@ -7,6 +7,7 @@ export default {
         titoloOriginale: String,
         lingua: String,
         voto:Number,
+        trama:String,
         pathImg: String
     },
     components:{
@@ -56,6 +57,7 @@ export default {
             {{languageNotExist}}
         </span>
         <StarRating :rating="getStars" :star-size="20" :read-only="true"></StarRating>
+        <p>Trama:{{trama}}</p>
     </h5>
     </div>
     <img :src="getImg" :alt="titolo" v-if="getImg">
@@ -75,11 +77,12 @@ li{
     width: calc(100% / 5);
     height: 340px;
     list-style: none;
-    margin-bottom: 90px;
+    margin-bottom: 10px;
     img{
         @include centerFlex('both');
         margin-top: 20px;
         box-shadow: 0px 0px 36px 2px rgba(0,0,0,0.75);
+        height: 300px;
     }
     h4{
         width: 300px;
@@ -96,10 +99,11 @@ li{
     } 
 }
 li:hover .text{
-    margin-top:190px;
-    height:130px;
+    margin-top:90px;
+    height:230px;
     width: 200px;
 	padding-top: 10px;
+    overflow: scroll;
 }
 
 .text{
@@ -113,9 +117,13 @@ li:hover .text{
     transition: all .3s linear;
     margin-top:300px;
 	position:absolute;
-	background-color:rgba(0, 0, 0, 0.453);
+	background-color:rgba(0, 0, 0, 0.502);
 	line-height: 20px;
 	color: #FFF;
+    p{
+        font-size: 13px;
+        margin-top: 4px;
+    }
 }
 
 </style>
