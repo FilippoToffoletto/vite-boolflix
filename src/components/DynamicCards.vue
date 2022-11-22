@@ -27,8 +27,11 @@ export default {
             if(this.languageNotExist.includes(this.lingua)){
                 return 'NOT FOUND'
             }
+        },
+        getStars(){
+            return  Math.ceil(this.voto / 2);
         }
-    }
+    },
 }
 </script>
 
@@ -42,12 +45,16 @@ export default {
             {{languageNotExist}}
         </span>
     </h3>
-    <h3>voto: {{voto / 2}}</h3>
+    <h3>voto: {{getStars}}</h3>
   </li>
 </template>
 
 
 
 <style lang="scss" scoped>
+
+h3{
+    text-transform: capitalize;
+}
 
 </style>
