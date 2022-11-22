@@ -15,7 +15,7 @@ export default {
     <div class="container d-flex justify-content-between py-4">
         <h2>Boolflix</h2>
         <nav class="d-flex py-2 gap-5">
-            <input @keyup.enter="$emit('search')" type="text" v-model="store.query" placeholder="Cerca Film o Serie TV">
+            <input @keyup.enter="$emit('search')" type="text" v-model.trim="store.query" placeholder="Cerca Film o Serie TV">
             <button class="btn btn-outline-primary" @click="$emit('search')">
                 search
             </button>

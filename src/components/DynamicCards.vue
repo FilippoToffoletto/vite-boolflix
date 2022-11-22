@@ -5,7 +5,8 @@ export default {
         titolo:String,
         titoloOriginale: String,
         lingua: String,
-        voto:Number
+        voto:Number,
+        pathImg: String
     },
     data(){
         return{
@@ -30,6 +31,11 @@ export default {
         },
         getStars(){
             return  Math.ceil(this.voto / 2);
+        },
+        getImg(){
+            if(this.pathImg == null){
+                return false;
+            }return 'https://image.tmdb.org/t/p/w300/' + this.pathImg;
         }
     },
 }
@@ -46,6 +52,8 @@ export default {
         </span>
     </h3>
     <h3>voto: {{getStars}}</h3>
+    <img :src="getImg" :alt="titolo" v-if="getImg">
+    <h3 v-else>IMAGE NOT EXIST</h3>
   </li>
 </template>
 

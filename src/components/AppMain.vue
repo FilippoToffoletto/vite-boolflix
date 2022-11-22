@@ -26,6 +26,7 @@ export default {
           :titolo="films.title"
           :lingua="films.original_language"
           :voto="films.vote_average"
+          :path-img="films.poster_path"
         />
 
       </ul>
@@ -40,6 +41,7 @@ export default {
           :titolo="serieTv.title"
           :lingua="serieTv.original_language"
           :voto="serieTv.vote_average"
+          :path-img="serieTv.poster_path"
         />
 
       </ul>
