@@ -17,7 +17,7 @@ export default {
 
 <template>
   <main>
-    <div class="container" v-if="store.isSearch">
+    <div class="container ft-container" v-if="store.isSearch">
       <h2>Films</h2>
       <ul class="d-flex flex-wrap justify-content-evenly">
         <DynamicCards 
@@ -32,9 +32,9 @@ export default {
       </ul>
     </div>
 
-    <div class="container" v-if="store.isSearch">
+    <div class="container ft-container" v-if="store.isSearch">
       <h2>Serie Tv</h2>
-      <ul class="d-flex flex-wrap justify-content-evenly">
+      <ul class="d-flex flex-wrap justify-content-start">
         <DynamicCards 
           v-for="(serieTv, index) in store.arraySerieTv"
           :key="index"
@@ -52,5 +52,16 @@ export default {
 
 
 <style lang="scss" scoped>
+@use '../styles/partials/variabiles' as *;
+
+.ft-container{
+  max-width: 1200px;
+  h2{
+    // box-shadow: 0px 0px 36px 2px rgba(0,0,0,0.75) inset;
+    box-shadow: 0px 0px 36px 2px rgba(0,0,0,0.75);
+    padding: 2px 2px;
+  }
+}
+
 
 </style>

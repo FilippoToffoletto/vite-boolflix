@@ -12,7 +12,7 @@ export default {
 
 <template>
   <header>
-    <div class="container d-flex justify-content-between py-4">
+    <div class="container-xl d-flex justify-content-between py-4">
         <h2>Boolflix</h2>
         <nav class="d-flex py-2 gap-5">
             <input @keyup.enter="$emit('search')" type="text" v-model.trim="store.query" placeholder="Cerca Film o Serie TV">

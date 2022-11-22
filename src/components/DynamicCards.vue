@@ -1,4 +1,5 @@
 <script>
+import StarRating from 'vue-star-rating';
 export default {
     name:'DynamicCards',
     props:{
@@ -7,6 +8,9 @@ export default {
         lingua: String,
         voto:Number,
         pathImg: String
+    },
+    components:{
+        StarRating
     },
     data(){
         return{
@@ -35,7 +39,7 @@ export default {
         getImg(){
             if(this.pathImg == null){
                 return false;
-            }return 'https://image.tmdb.org/t/p/w300/' + this.pathImg;
+            }return 'https://image.tmdb.org/t/p/w200/' + this.pathImg;
         }
     },
 }
@@ -43,26 +47,50 @@ export default {
 
 <template>
   <li>
-    <h3>titolo: {{titolo}}</h3>
-    <h3>titolo originale:  {{titoloOriginale}}</h3>
-    <h3>
+    <h5>titolo: {{titolo}}</h5>
+    <h5>
         lingua: 
         <span :class="getClassName">
             {{languageNotExist}}
         </span>
-    </h3>
-    <h3>voto: {{getStars}}</h3>
+    </h5>
+    <StarRating :rating="getStars" :star-size="20" :read-only="true" ></StarRating>
     <img :src="getImg" :alt="titolo" v-if="getImg">
-    <h3 v-else>IMAGE NOT EXIST</h3>
+    <h4 v-else class="image">IMAGE NOT EXIST</h4>
   </li>
 </template>
 
 
 
 <style lang="scss" scoped>
+@use '../styles/partials/mixins'as *;
 
 h3{
     text-transform: capitalize;
+}
+li{
+    display: block;
+    width: calc(100% / 5);
+    height: 450px;
+    list-style: none;
+    padding: 10px 2px;
+    img{
+        @include centerFlex('both');
+    }
+    h4{
+        width: 300px;
+        text-align: center;
+        font-weight: 700;
+        font-size: .8rem
+    }
+    h5{
+        font-size: .9rem
+    }
+    .image{
+        @include centerFlex('vertical');
+        height: 200px;
+    }
+    
 }
 
 </style>
