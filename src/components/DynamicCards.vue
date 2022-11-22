@@ -46,15 +46,18 @@ export default {
 </script>
 
 <template>
-  <li>
-    <h5>titolo: {{titolo}}</h5>
-    <h5>
+  <li class="position-relative">
+    <div class="text position-absolute start-0">
+        <h5>{{titolo}}</h5>
+        <h5>titolo-originale:{{titoloOriginal}}</h5>
+        <h5>
         lingua: 
         <span :class="getClassName">
             {{languageNotExist}}
         </span>
+        <StarRating :rating="getStars" :star-size="20" :read-only="true"></StarRating>
     </h5>
-    <StarRating :rating="getStars" :star-size="20" :read-only="true" ></StarRating>
+    </div>
     <img :src="getImg" :alt="titolo" v-if="getImg">
     <h4 v-else class="image">IMAGE NOT EXIST</h4>
   </li>
@@ -69,13 +72,14 @@ h3{
     text-transform: capitalize;
 }
 li{
-    display: block;
     width: calc(100% / 5);
-    height: 450px;
+    height: 340px;
     list-style: none;
-    padding: 10px 2px;
+    margin-bottom: 90px;
     img{
         @include centerFlex('both');
+        margin-top: 20px;
+        box-shadow: 0px 0px 36px 2px rgba(0,0,0,0.75);
     }
     h4{
         width: 300px;
@@ -88,9 +92,30 @@ li{
     }
     .image{
         @include centerFlex('vertical');
-        height: 200px;
-    }
-    
+        height: 250px;
+    } 
+}
+li:hover .text{
+    margin-top:190px;
+    height:130px;
+    width: 200px;
+	padding-top: 10px;
+}
+
+.text{
+    padding: 0px 3px;
+    height: 0;
+    width: 200px;
+    overflow:hidden;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+    -o-transition: all 0.2s linear;
+    transition: all .3s linear;
+    margin-top:300px;
+	position:absolute;
+	background-color:rgba(0, 0, 0, 0.453);
+	line-height: 20px;
+	color: #FFF;
 }
 
 </style>

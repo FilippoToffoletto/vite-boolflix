@@ -57,9 +57,10 @@ export default {
 .ft-container{
   max-width: 1200px;
   h2{
-    // box-shadow: 0px 0px 36px 2px rgba(0,0,0,0.75) inset;
-    box-shadow: 0px 0px 36px 2px rgba(0,0,0,0.75);
+    // box-shadow: 0px 0px 36px 2px rgba(0,0,0,0.75);
+    border: 1px solid white;
     padding: 2px 2px;
+    margin-top: 40px;
   }
 }
 
